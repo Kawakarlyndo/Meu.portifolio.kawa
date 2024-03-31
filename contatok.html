@@ -31,49 +31,100 @@
         background-color: black;
     }
 </style>
+<script>
+    document.getElementById('enviar').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        // Collect form data
+        var formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            senha: document.getElementById('senha').value,
+            profissao: document.querySelector('input[name="profissao"]:checked').value,
+            acessoInternet: document.querySelectorAll('input[name="acessoInternet"]:checked').value,
+            estado: document.getElementById('estado').value,
+            coment: document.getElementById('coment').value
+        };
+        // Send form data to server-side script via AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'send_form.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(formData));
+
+        // Reset form after submission
+        document.getElementById('myForm').reset();
+    });
+</script>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $data = json_decode(file_get_contents("php://input"), true);
+    
+    $name = $data['name'];
+    $email = $data['email'];
+    $senha = $data['senha'];
+    $profissao = $data['profissao'];
+    $acessoInternet = $data['acessoInternet'];
+    $estado = $data['estado'];
+    $coment = $data['coment'];
+
+    $to = "kawakarlyndoalves@gmail.com";
+    $subject = "Novo formulário submetido";
+    $message = "Nome: $name\n";
+    $message .= "Email: $email\n";
+    $message .= "Senha: $senha\n";
+    $message .= "Profissão: $profissao\n";
+    $message .= "Acesso à internet: $acessoInternet\n";
+    $message .= "Estado: $estado\n";
+    $message .= "Comentário: $coment\n";
+    
+    mail($to, $subject, $message);
+
+    // Responder ao cliente (opcional)
+    echo "Formulário enviado com sucesso!";
+}
+?>
 <body>
     <h1>
         <a href="for.html">o.o</a>
     </h1>
-    <form action="">
+    <form id="myForm">
         <label for=""><b>digite seu nome:</b></label>
-        <Input type="text", name="name" id="name"
-        placeholder="digite seu nome" required>
-        <br></br>
+        <input type="text" name="name" id="name" placeholder="digite seu nome." required>
+        <br><br>
         <label for=""><b>digite seu email:</b></label>
-        <Input type="text", name="email" id="email"
-        placeholder="digite seu email" required>
-        <br></br>
+        <input type="email" name="email" id="email" placeholder="digite seu email." required>
+        <br><br>
         <label for=""><b>digite sua senha:</b></label>
-        <Input type="text", name="senha" id="senha"
-        placeholder="digite sua senha" required>
-        <br></br>
-        <h4>marque sua profissao</h4>
-        <Input type="radio", name="profissao", id="profissao">
-        <label for="profissao">professor</label>
-        <Input type="radio", name="estudante", id="estudante">
-        <label for="estudante">estudante</label>
-        <Input type="radio", name="vendedor", id="vendedor">
-        <label for="vendedor">vendedor</label>
-        <br></br>
-        <h4>acesso a internet</h4>
-        <input type="checkbox", id="celular", name="internet">
-        <label for="vendedor">celular</label>
-        <input type="checkbox", id="othe", name="internet">
-        <label for="vendedor">notebok/pc</label>
-        <input type="checkbox", id="celular", name="internet">
-        <label for="vendedor", valu="banda larga">nao tenho</label>
-        <br></br>
-        <h4>estado que vc mora</h4>
-        <section>
-            <option value="maranhao">maranhao</option>
-            <option value="maranhao">maranhao</option>
-            <option value="maranhao">maranhao</option>
-        </section>
-        <br></br>
-        <textarea name="coment" id="coment" cols="30" rows="30" placeholder="coment" required></textarea>
-        <br></br>
-        <Input type="submit", name="enviar", id="enviar" >
+        <input type="password" name="senha" id="senha" placeholder="digite sua senha." required>
+        <br><br>
+        <h4>qual sua profissão.</h4>
+        <input type="radio" name="profissao" id="professor" value="Professor">
+        <label for="professor">professor.</label>
+        <input type="radio" name="profissao" id="estudante" value="Estudante">
+        <label for="estudante">estudante.</label>
+        <input type="radio" name="profissao" id="vendedor" value="Vendedor">
+        <label for="vendedor">vendedor.</label>
+        <input type="radio" name="profissao" id="nada" value="Nada">
+        <label for="nada">em nada no momento.</label>
+        <br><br>
+        <h4>como você acessa a internet.</h4>
+        <input type="checkbox" id="celular" name="acessoInternet" value="Celular">
+        <label for="celular">celular.</label>
+        <input type="checkbox" id="notebook" name="acessoInternet" value="Notebook/PC">
+        <label for="notebook">notebok/pc.</label>
+        <input type="checkbox" id="semInternet" name="acessoInternet" value="Não possuo acesso a internet">
+        <label for="semInternet">não possuo acesso a internet.</label>
+        <br><br>
+        <label for="estado">estado</label>
+        <select id="estado" name="estado">
+            <option value="maranhao">ma</option>
+            <option value="rio de janeiro">rg</option>
+            <option value="acre">ac</option>
+        </select>
+        <br><br>
+        <textarea name="coment" id="coment" cols="30" rows="10" placeholder="coment" required></textarea>
+        <br><br>
+        <input type="reset" name="reset" id="reset" value="Reset">
+        <input type="submit" name="enviar" id="enviar" value="Enviar">
     </form>
 </body>
-</html>
+    </html>
