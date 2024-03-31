@@ -101,4 +101,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="professor">professor.</label>
         <input type="radio" name="profissao" id="estudante" value="Estudante">
         <label for="estudante">estudante.</label>
-        <input type="radio" name="profissao" id="vendedor" value="Vendedor⬤
+        <input type="radio" name="profissao" id="vendedor" value="Vendedor">
+        <label for="vendedor">vendedor.</label>
+        <input type="radio" name="profissao" id="nada" value="Nada">
+        <label for="nada">em nada no momento.</label>
+        <br><br>
+        <h4>como você acessa a internet.</h4>
+        <input type="checkbox" id="celular" name="acessoInternet" value="Celular">
+        <label for="celular">celular.</label>
+        <input type="checkbox" id="notebook" name="acessoInternet" value="Notebook/PC">
+        <label for="notebook">notebok/pc.</label>
+        <input type="checkbox" id="semInternet" name="acessoInternet" value="Não possuo acesso a internet">
+        <label for="semInternet">não possuo acesso a internet.</label>
+        <br><br>
+        <label for="estado">estado</label>
+        <select id="estado" name="estado">
+            <option value="maranhao">ma</option>
+            <option value="rio de janeiro">rg</option>
+            <option value="acre">ac</option>
+        </select>
+        <br><br>
+        <textarea name="coment" id="coment" cols="30" rows="10" placeholder="coment" required></textarea>
+        <br><br>
+        <input type="reset" name="reset" id="reset" value="Reset">
+        <input type="submit" name="enviar" id="enviar" value="Enviar">
+    </form>
+</body>
+</html>
