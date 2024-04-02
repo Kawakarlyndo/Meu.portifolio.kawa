@@ -1,4 +1,4 @@
-v<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -14,11 +14,11 @@ v<!DOCTYPE html>
     }
     h1{
         color: blueviolet;
-        text-align-last: center;
+        text-align: center;
     }
     form h4{
         color: blueviolet;
-        text-align-last: center;
+        text-align: center;
     }
     form{
         color: blueviolet;
@@ -74,7 +74,7 @@ v<!DOCTYPE html>
         font-size: 10px;
         transition: all 1s;
     }
-    form button:haver{
+    form button:hover{
         background: #1d1d2e;
         color: #220484;
         border-radius: 16px;
@@ -82,46 +82,44 @@ v<!DOCTYPE html>
 </style>
 <body>
     <h1>CONTATO</h1>
-    <form action="https://formsubmit.co/kawakarlyndoalves@gmail.com​" method="POST">
-        <input type="reset" name="reset" id="reset" value="Reset">
-        <label for=""><b>digite seu nome:</b></label>
-        <input type="text" name="name" id="name" placeholder="digite seu nome." required>
+    <form action="https://formsubmit.co/kawakarlyndoalves@gmail.com" method="POST">
+        <label for="name"><b>Digite seu nome:</b></label>
+        <input type="text" name="name" id="name" placeholder="Digite seu nome." required>
         <br><br>
-        <label for=""><b>digite seu email:</b></label>
-        <input type="email" name="email" id="email" placeholder="digite seu email." required>
+        <label for="email"><b>Digite seu email:</b></label>
+        <input type="email" name="email" id="email" placeholder="Digite seu email." required>
         <br><br>
-        <label for=""><b>digite sua senha:</b></label>
-        <input type="password" name="senha" id="senha" placeholder="digite sua senha." required>
+        <label for="senha"><b>Digite sua senha:</b></label>
+        <input type="password" name="senha" id="senha" placeholder="Digite sua senha." required>
         <br><br>
-        <h4>qual sua profissão.</h4>
+        <h4>Qual sua profissão?</h4>
         <input type="radio" name="profissao" id="professor" value="Professor">
-        <label for="professor">professor.</label>
+        <label for="professor">Professor</label>
         <input type="radio" name="profissao" id="estudante" value="Estudante">
-        <label for="estudante">estudante.</label>
+        <label for="estudante">Estudante</label>
         <input type="radio" name="profissao" id="vendedor" value="Vendedor">
-        <label for="vendedor">vendedor.</label>
+        <label for="vendedor">Vendedor</label>
         <input type="radio" name="profissao" id="nada" value="Nada">
-        <label for="nada">em nada no momento.</label>
+        <label for="nada">Em nada no momento</label>
         <br><br>
-        <h4>como você acessa a internet.</h4>
+        <h4>Como você acessa a internet?</h4>
         <input type="checkbox" id="celular" name="acessoInternet" value="Celular">
-        <label for="celular">celular.</label>
+        <label for="celular">Celular</label>
         <input type="checkbox" id="notebook" name="acessoInternet" value="Notebook/PC">
-        <label for="notebook">notebok/pc.</label>
+        <label for="notebook">Notebook/PC</label>
         <input type="checkbox" id="semInternet" name="acessoInternet" value="Não possuo acesso a internet">
-        <label for="semInternet">não possuo acesso a internet.</label>
+        <label for="semInternet">Não possuo acesso a internet</label>
         <br><br>
-        <label for="estado">estado</label>
+        <label for="estado">Estado</label>
         <select id="estado" name="estado">
-            <option value="maranhao">ma</option>
-            <option value="rio de janeiro">rg</option>
-            <option value="acre">ac</option>
+            <option value="maranhao">MA</option>
+            <option value="rio de janeiro">RJ</option>
+            <option value="acre">AC</option>
         </select>
         <br><br>
-        <textarea name="coment" id="coment" cols="30" rows="10" placeholder="coment" required></textarea>
+        <textarea name="coment" id="coment" cols="30" rows="10" placeholder="Comentário" required></textarea>
         <br><br>
-        <input type="reset" name="reset" id="reset" value="Reset">
-        <button type="submit">enviar</button>
-    </ form>
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
